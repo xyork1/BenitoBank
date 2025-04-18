@@ -28,7 +28,7 @@ public class SecurityConfig {
         
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/index","/h2-console/**").permitAll()
+                .requestMatchers("/","/h2-console/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/cliente/**").hasRole("CLIENTE")
                 .requestMatchers("/empleado/**").hasRole("EMPLEADO")
@@ -36,6 +36,7 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                 .successHandler(successHandler).permitAll()
+                .loginPage("/login")
             )
             .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout")

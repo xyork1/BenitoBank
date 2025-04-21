@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+        <h1>Hola, <span th:text="${usuario.nombre}"></span></h1>
+        <h2>Esto solo lo vez si eres  admin</h2>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Cerrar sesion</button>
+        </form>
+    </div>
+    <div th:if="${#authorization.expression('hasRole(''CLIENTE'')')}">
+        <h1>Hola, <span th:text="${usuario.nombre}"></span></h1>
+        <h2>Esto solo lo vez si eres  cliente</h2>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Cerrar sesion</button>
+        </form>
+    </div>
+    <div th:if="${#authorization.expression('hasRole(''EMPLEADO'')')}">
+        <h1>Hola, <span th:text="${usuario.nombre}"></span></h1>
+        <h2>Esto solo lo vez si eres  empleado</h2>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Cerrar sesion</button>
+        </form>
+    </div>
+</body>
+</html>

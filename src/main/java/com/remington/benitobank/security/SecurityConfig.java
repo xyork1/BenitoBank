@@ -30,7 +30,6 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/","/h2-console/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
-                .requestMatchers("/cliente/**").hasRole("CLIENTE")
                 .requestMatchers("/empleado/**").hasRole("EMPLEADO")
                 .anyRequest().authenticated()
             )
@@ -39,7 +38,7 @@ public class SecurityConfig {
                 .loginPage("/login")
             )
             .logout(logout -> logout
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/login?logout").permitAll()
             )
             
             .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"))

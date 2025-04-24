@@ -28,17 +28,17 @@ public class SecurityConfig {
         
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/index","/h2-console/**").permitAll()
+                .requestMatchers("/","/h2-console/**", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
-                .requestMatchers("/cliente/**").hasRole("CLIENTE")
                 .requestMatchers("/empleado/**").hasRole("EMPLEADO")
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .successHandler(successHandler).permitAll()
+                .loginPage("/login")
             )
             .logout(logout -> logout
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/login?logout").permitAll()
             )
             
             .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"))

@@ -1,0 +1,43 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  header, footer {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: 1rem 2rem;
+  }
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+  main {
+    padding: 2rem;
+  }
+  /* Grid de 12 columnas */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+  }
+  .col {
+    padding: 0.5rem;
+    flex: 1;
+  }
+  .col-6 { flex: 0 0 50%; }
+  .col-4 { flex: 0 0 33.333%; }
+  .col-3 { flex: 0 0 25%; }
+  @media (max-width: 768px) {
+    .col-6, .col-4, .col-3 {
+      flex: 0 0 100%;
+    }
+  }
+  .logo-header {
+    height: 60px;
+    width: auto;
+  }
+  .navbar-brand img {
+    display: block;
+  }
+ 

@@ -1,0 +1,22 @@
+:root {
+    /* Paleta Figma */
+    --color-primary: #1E3A8A;
+    --color-primary-light: #3B82F6;
+    --color-bg: #FFFFFF;
+    --color-bg-soft: #F3F4F6;
+    --color-text: #374151;
+    --color-accent: #F97316;
+  
+    /* Tipografías */
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Roboto Slab', serif;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-soft);
+    color: var(--color-text);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+  }
